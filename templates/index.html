@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>SimpleBoard</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8;"/>
+		<!-- Framework CSS -->
+		<link rel="stylesheet" href="include/css/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="include/css/print.css" type="text/css" media="print">
+		<!--[if IE]><link rel="stylesheet" href="include/css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+		
+		<link href="include/css/main.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" href="include/css/cupertino/jquery-ui-1.7.1.custom.css" type="text/css" media="screen, projection">
+		<script type="text/javascript" charset="utf-8" src="include/js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="include/js/jquery-ui.js"></script>
+		<script type="text/javascript" charset="utf-8" src="include/js/base.js"></script>
+	</head>
+	<body>
+		<div class="container header">
+			<div class="span-3 header_black logo">Simple</div>
+			<div class="span-3 header_white logo">Board</div>
+			<div class="span-11">&nbsp;</div>
+			<div class="span-7 last">
+            	<{if $keruser->islogin()}>
+    				<a href="logout.php" class="ui-state-default ui-corner-all button noicon menubtn" id="btnLogout">登出</a>
+					<div class="headermsg right">Hi, <{$keruser->uid}>!</div>
+                <{else}>
+                    <a href="#" class="ui-state-default ui-corner-all button noicon menubtn" id="btnRegister">註冊</a>
+                    <a href="#" class="ui-state-default ui-corner-all button noicon menubtn" id="btnLogin">登入</a>
+                <{/if}>
+			</div>
+		</div>				
+
+		<{$content}>
+        		
+		<div class="footer">Simpleboard v0.1 | Copyright by Zero, ChuckLin 2009</div>
+		
+		<!--Dialogs-->
+		<div id="dlgLogin" title="登入">
+        	<form action="login.php" method="post">
+                <p>帳號<br/><input type="text" name="user"></p>
+                <p>密碼<br/><input type="password" name="pass"></p>
+                <input type="submit" value="登入 &rarr;">
+            </form>
+		</div>
+
+		<div id="dlgRegister" title="註冊">
+        	<form action="register.php" method="post">
+                <p>帳號<br/><input type="text" name="user"></p>
+                <p>密碼<br/><input type="password" name="pass"></p>
+                <p>確認密碼<br/><input type="password" name="pass2"></p>
+                <input type="submit" value="註冊帳號 &rarr;">
+            </form>
+		</div>
+	</body>
+</html>
