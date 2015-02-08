@@ -1,4 +1,5 @@
 .DS_Store
 
+config.php
 templates_c/*
 !templates_c/placeholder

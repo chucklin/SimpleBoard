@@ -1,0 +1,24 @@
+<?php
+define("CONFIG_INCLUDED",1);
+
+define('ROOT', realpath(dirname(__FILE__)));
+
+$p1 = strrev(str_replace(DIRECTORY_SEPARATOR, '/', str_replace(ROOT, '', realpath($_SERVER['SCRIPT_FILENAME']))));
+$p2 = strrev($_SERVER['SCRIPT_NAME']);
+
+for ($i = 0;$p1[$i] == $p2[$i];$i++)
+	$p2[$i] = ' ';
+
+//$p2[--$i] = '/';
+
+define('SITE', strrev(trim($p2)));
+
+unset($p1, $p2);
+
+define("DB_HOST","localhost");
+define("DB_USER","username");
+define("DB_PWD","password");
+define('DB_NAME', "simpleboard");
+
+require_once ROOT.'/include/common.php';
+?>
